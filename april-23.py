@@ -22,3 +22,24 @@ def gradingStudents(grades):
 
 #------------------------------------------#
 
+def kangaroo(x1, v1, x2, v2):
+    """Return a string YES or NO, denoting whether the two kangaroos will ever meet.
+    Values for x denote the starting location on the number line, O or higher.
+    Values for v denote the distance per second for that kangaroo."""
+    # 0 3 4 2
+    
+    if v2 >= v1:  # We know x1 is always less than x2, so a faster x2 kangaroo means they will never meet
+        return "NO"
+    else:
+        d1 = x1
+        d2 = x2
+        t = 0
+        
+        while d1 < d2:
+            t += 1  # good thing to track, in case it is needed in a real use case
+            d1 += v1
+            d2 += v2
+            if d1 == d2:
+                return "YES"
+    
+    return "NO"
